@@ -8,7 +8,6 @@
 #include <sstream>
 
 #include "Uzytkownik.h"
-#include "Adresat.h"
 #include "PlikZUzytkownikami.h"
 
 using namespace std;
@@ -17,25 +16,25 @@ class UzytkownikMenedzer
 {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
+    PlikZUzytkownikami plikZUzytkownikami;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    PlikZUzytkownikami plikZUzytkownikami;
-
-
-    friend class AdresatMenedzer;
 
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzykownikami, int IDZALOGOWANEGOUZYTKOWNIKA = 0)
-    :
-        plikZUzytkownikami(nazwaPlikuZUzykownikami), idZalogowanegoUzytkownika(IDZALOGOWANEGOUZYTKOWNIKA) {};
+    UzytkownikMenedzer(string nazwaPlikuZUzykownikami): plikZUzytkownikami(nazwaPlikuZUzykownikami) {
+         idZalogowanegoUzytkownika = 0;
+         uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
 
     void rejestracjaUzytkownika();
-    int logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
+    void logowanieUzytkownika();
+    void zmianaHaslaZalogowanegoUzytkownika();
+    void wylogowanieUzytkownika();
+    bool czyUzytkownikJestZalogowany();
+    int pobierzIdZalogowanegoUzytkownika();
 
 };
 

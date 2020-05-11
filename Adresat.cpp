@@ -6,7 +6,7 @@ void Adresat::ustawId(int noweId)
     if(noweId >= 0)
         id = noweId;
 }
-void Adresat::ustawIdZalogowanegoUzytkownika(int noweIdUzytkownika)
+void Adresat::ustawIdUzytkownika(int noweIdUzytkownika)
 {
     if(noweIdUzytkownika >= 0)
     idUzytkownika = noweIdUzytkownika;
@@ -36,7 +36,7 @@ int Adresat::pobierzId()
 {
     return id;
 }
-int Adresat::pobierzIdZalogowanegoUzytkownika()
+int Adresat::pobierzIdUzytkownika()
 {
     return idUzytkownika;
 }

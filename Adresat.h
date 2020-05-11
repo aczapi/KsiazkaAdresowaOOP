@@ -16,9 +16,18 @@ class Adresat
     string adres;
 
 public:
-
+    Adresat(int = 0, int idUzytkownika = 0, string imie = "", string nazwisko = "", string numerTelefonu = "", string email = "", string adres = "")
+{
+    this -> id = id;
+    this -> idUzytkownika = idUzytkownika;
+    this -> imie = imie;
+    this -> nazwisko = nazwisko;
+    this -> numerTelefonu = numerTelefonu;
+    this -> email = email;
+    this -> adres = adres;
+}
     void ustawId(int noweId);
-    void ustawIdZalogowanegoUzytkownika(int noweIdUzytkownika);
+    void ustawIdUzytkownika(int noweIdUzytkownika);
     void ustawImie(string noweImie);
     void ustawNazwisko(string noweNazwisko);
     void ustawNumerTelefonu(string nowyNumerTelefonu);
@@ -26,7 +35,7 @@ public:
     void ustawAdres(string nowyAdres);
 
     int pobierzId();
-    int pobierzIdZalogowanegoUzytkownika();
+    int pobierzIdUzytkownika();
     string pobierzImie();
     string pobierzNazwisko();
     string pobierzNumerTelefonu();
