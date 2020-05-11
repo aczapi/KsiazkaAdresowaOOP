@@ -108,40 +108,4 @@ char MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika()
 
     return wybor;
 }
-
-/*string MetodyPomocnicze::wyswietlPodaneHasloJakoGwiazdki()
-{
-    string haslo = "";
-    char c;
-    int liczbaGwiazdek = 0;
-    int gwiazdki;
-
-    while (c != 13)
-    {
-        c = (char)getch();
-        if(c == 13)
-        {
-            break;
-        }
-        if(c == 8)
-        {
-            haslo = haslo.substr(0, haslo.length() -1);
-            liczbaGwiazdek--;
-            gwiazdki = liczbaGwiazdek;
-            system("cls");
-            while (gwiazdki > 0)
-            {
-                cout << "*";
-                gwiazdki--;
-            }
-        }
-        else
-        {
-            liczbaGwiazdek++;
-            haslo += c;
-            cout << "*";
-        }
-    }
-
-    return haslo;
-}*/
+*/

@@ -17,7 +17,6 @@ public:
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     int wczytajLiczbeCalkowita();
     int konwersjaStringNaInt(string liczba);
-    //string wyswietlPodaneHasloJakoGwiazdki();
     //char wybierzOpcjeZMenuGlownego();
     //char wybierzOpcjeZMenuUzytkownika();
 };
