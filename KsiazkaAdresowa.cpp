@@ -57,3 +57,29 @@ bool KsiazkaAdresowa::czyUzytkownikJestZalogowany()
     uzytkownikMenedzer.czyUzytkownikJestZalogowany();
 
 }
+
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer -> wyszukajAdresatowPoImieniu();
+    }
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
+{
+     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer -> wyszukajAdresatowPoNazwisku();
+    }
+}
+
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatMenedzer -> usunAdresata();
+}
+
+void KsiazkaAdresowa::edytujAdresata()
+{
+    adresatMenedzer -> edytujAdresata();
+}

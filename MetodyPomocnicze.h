@@ -4,6 +4,10 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <fstream>
+#include <cstdlib>
+
+
 
 using namespace std;
 
@@ -17,6 +21,14 @@ public:
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     int wczytajLiczbeCalkowita();
     int konwersjaStringNaInt(string liczba);
+    void usunPlik(string nazwaPlikuZRozszerzeniem);
+    void zmienNazwePliku(string staraNazwa, string nowaNazwa);
+    int podajIdWybranegoAdresata();
+    char wybierzOpcjeZMenuEdycja();
+
+
+
+
     //char wybierzOpcjeZMenuGlownego();
     //char wybierzOpcjeZMenuUzytkownika();
 };

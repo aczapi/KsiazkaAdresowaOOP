@@ -73,7 +73,7 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
         plikTekstowy.close();
     }
     //else
-      //  cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+    //  cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
 
     if (daneOstaniegoAdresataWPliku != "")
     {
@@ -159,3 +159,129 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata()
 {
     return idOstatniegoAdresata;
 }
+
+void PlikZAdresatami::usunAdresataZPliku(int idUsuwanegoAdresata)
+{
+    Adresat adresaci;
+    MetodyPomocnicze metodyPomocnicze;
+    int idAdresataZPliku = 0;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+
+  //  cout <<idOstatniegoAdresata;
+   // pobierzIdOstatniegoAdresata();
+   // system("Pause");
+    //    Sleep(1500);
+
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open("tymczasowy", ios::out | ios::app);
+
+    if(odczytywanyPlikTekstowy.good() == true)
+    {
+        while(getline(odczytywanyPlikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
+        {
+            idAdresataZPliku = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami);
+            if (idUsuwanegoAdresata != idAdresataZPliku)
+            {
+                tymczasowyPlikTekstowy << daneJednegoAdresataOddzielonePionowymiKreskami <<endl;
+            }
+
+        }
+        tymczasowyPlikTekstowy.close();
+        odczytywanyPlikTekstowy.close();
+
+        cout << "Adresat zostal usuniety." << endl;
+
+        metodyPomocnicze.usunPlik(NAZWA_PLIKU_Z_ADRESATAMI.c_str());
+        metodyPomocnicze.zmienNazwePliku("tymczasowy", NAZWA_PLIKU_Z_ADRESATAMI.c_str());
+    }
+    else
+    {
+        cout << "Nie mozna otworzyc pliku: ksiazka_adresowa.txt" << endl;
+    }
+
+
+   cout << pobierzIdOstatniegoAdresata();
+   // cout <<idOstatniegoAdresata;
+   // system("Pause");
+   idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsuwanegoAdresata,idOstatniegoAdresata);
+   cout << idOstatniegoAdresata;
+    system("pause");
+}
+
+int PlikZAdresatami::podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsuwanegoAdresata, int idOstatniegoAdresata)
+{
+    cout << idUsuwanegoAdresata<<" "<<idOstatniegoAdresata;
+    system("Pause");
+    if (idUsuwanegoAdresata == idOstatniegoAdresata)
+        return pobierzZPlikuIdOstatniegoAdresata();
+    else
+        return idOstatniegoAdresata;
+}
+
+int PlikZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
+{
+    int idOstatniegoAdresata = 0;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    string daneOstaniegoAdresataWPliku = "";
+    fstream odczytywanyPlikTekstowy;
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+
+    if (odczytywanyPlikTekstowy.good() == true)
+    {
+        while (getline(odczytywanyPlikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {}
+            daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+            cout << daneOstaniegoAdresataWPliku;
+            system("pause");
+            odczytywanyPlikTekstowy.close();
+    }
+    else
+        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+
+    if (daneOstaniegoAdresataWPliku != "")
+    {
+        idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+    }
+    return idOstatniegoAdresata;
+}
+
+
+void PlikZAdresatami::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata)
+{
+    MetodyPomocnicze metodyPomocnicze;
+    int idAdresataZPliku = 0;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open("tymczasowy", ios::out | ios::app);
+
+    if(odczytywanyPlikTekstowy.good() == true)
+    {
+        while(getline(odczytywanyPlikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
+        {
+            idAdresataZPliku = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami);
+
+            if (idEdytowanegoAdresata != idAdresataZPliku)
+            {
+                tymczasowyPlikTekstowy << daneJednegoAdresataOddzielonePionowymiKreskami << endl;
+            }
+            else
+            {
+                daneJednegoAdresataOddzielonePionowymiKreskami = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+                tymczasowyPlikTekstowy << daneJednegoAdresataOddzielonePionowymiKreskami << endl;
+            }
+        }
+        odczytywanyPlikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        metodyPomocnicze.usunPlik(NAZWA_PLIKU_Z_ADRESATAMI.c_str());
+        metodyPomocnicze.zmienNazwePliku("tymczasowy", NAZWA_PLIKU_Z_ADRESATAMI.c_str());
+
+    }
+    else
+    {
+        cout << "Nie mozna otworzyc pliku: ksiazka_adresowa.txt" << endl;
+    }
+}
+
