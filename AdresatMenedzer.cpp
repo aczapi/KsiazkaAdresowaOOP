@@ -158,7 +158,7 @@ void AdresatMenedzer::usunAdresata()
     Adresat adresat;
     MetodyPomocnicze metodyPomocnicze;
     system("cls");
-     cin.sync();
+    cin.sync();
 
     cout << ">>> Usuwanie wybranego kontaktu <<<" << endl << endl;
     cout << "Podaj numer ID kontaktu, ktorego chcesz usunac: ";

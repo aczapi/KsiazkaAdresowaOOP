@@ -23,9 +23,10 @@ class UzytkownikMenedzer
     bool czyIstniejeLogin(string login);
 
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzykownikami): plikZUzytkownikami(nazwaPlikuZUzykownikami) {
-         idZalogowanegoUzytkownika = 0;
-         uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    UzytkownikMenedzer(string nazwaPlikuZUzykownikami): plikZUzytkownikami(nazwaPlikuZUzykownikami)
+    {
+        idZalogowanegoUzytkownika = 0;
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
     };
 
     void rejestracjaUzytkownika();

@@ -7,8 +7,6 @@
 #include <fstream>
 #include <cstdlib>
 
-
-
 using namespace std;
 
 class MetodyPomocnicze
@@ -26,11 +24,6 @@ public:
     int podajIdWybranegoAdresata();
     char wybierzOpcjeZMenuEdycja();
 
-
-
-
-    //char wybierzOpcjeZMenuGlownego();
-    //char wybierzOpcjeZMenuUzytkownika();
 };
 
 #endif

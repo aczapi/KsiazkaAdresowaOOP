@@ -13,8 +13,6 @@ int main()
     {
         if (ksiazkaAdresowa.czyUzytkownikJestZalogowany() == false)
         {
-            //wybor = MetodyPomocnicze::wybierzOpcjeZMenuGlownego();
-
             system("cls");
             cout << "    >>> MENU  GLOWNE <<<" << endl;
             cout << "---------------------------" << endl;
@@ -58,7 +56,6 @@ int main()
             cout << "8. Wyloguj sie" << endl;
             cout << "---------------------------" << endl;
             cout << "Twoj wybor: ";
-            //wybor = wczytajZnak();
             cin >> wybor;
 
             switch (wybor)

@@ -1,6 +1,5 @@
 #include "Uzytkownik.h"
 
-//settery
 void Uzytkownik::ustawId(int noweId)
 {
     if(noweId >= 0)
@@ -14,7 +13,7 @@ void Uzytkownik::ustawHaslo(string noweHaslo)
 {
     haslo = noweHaslo;
 }
-//gettery
+
 int Uzytkownik::pobierzId()
 {
     return id;

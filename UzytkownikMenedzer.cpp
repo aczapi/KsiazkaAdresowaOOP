@@ -25,7 +25,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
         cin >> login;
         uzytkownik.ustawLogin(login);
     }
-     while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
+    while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
 
     string haslo;
     cout << "Podaj haslo: ";
@@ -97,8 +97,8 @@ void UzytkownikMenedzer::logowanieUzytkownika()
             return;
         }
     }
-        cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
-        system("pause");
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
 }
 
 void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
@@ -138,5 +138,5 @@ bool UzytkownikMenedzer::czyUzytkownikJestZalogowany()
 
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
 {
-     return idZalogowanegoUzytkownika;
+    return idZalogowanegoUzytkownika;
 }

@@ -46,7 +46,7 @@ void KsiazkaAdresowa::dodajAdresata()
 
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
 {
-     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
     {
         adresatMenedzer -> wyswietlWszystkichAdresatow();
     }
@@ -60,7 +60,7 @@ bool KsiazkaAdresowa::czyUzytkownikJestZalogowany()
 
 void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
 {
-     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
     {
         adresatMenedzer -> wyszukajAdresatowPoImieniu();
     }
@@ -68,7 +68,7 @@ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
 
 void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
 {
-     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
     {
         adresatMenedzer -> wyszukajAdresatowPoNazwisku();
     }
